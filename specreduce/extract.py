@@ -60,9 +60,6 @@ def _ap_weight_images(center, width, disp_axis, crossdisp_axis, image_shape):
         cross-dispersion axis
     image_shape : tuple with 2 or 3 elements
         size (shape) of image
-    wavescale : float
-        scale the width with wavelength (default=None)
-        wavescale gives the reference wavelenth for the width value  NOT USED
 
     Returns
     -------
@@ -119,8 +116,6 @@ class BoxcarExtract(SpecreduceOperation):
     -------
     spec : `~specutils.Spectrum1D`
         The extracted spectrum
-    skyspec : `~specutils.Spectrum1D`
-        The sky spectrum used in the extraction process
     """
     # TODO: what are reasonable defaults?
     # TODO: ints or floats?
@@ -145,9 +140,8 @@ class BoxcarExtract(SpecreduceOperation):
 
         Returns
         -------
-        waves, ext1d : (ndarray, ndarray)
-            2D `float` array with wavelengths
-            1D `float` array with extracted 1d spectrum in Jy
+        spec : `~specutils.Spectrum1D`
+            The extracted spectrum
         """
 #        self.last_trace = trace_object
 #        self.last_image = image
